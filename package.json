@@ -1,12 +1,26 @@
 {
-  "name": "pingui_alert_sdk",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "pingui-alert-sdk",
+  "version": "1.0.1",
+  "description": "SDK for Pingui Alert service",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepack": "npm run clean && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["alert", "notification", "sdk", "pingui"],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.28.1",
@@ -14,5 +28,8 @@
     "@types/node": "^25.0.9",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
