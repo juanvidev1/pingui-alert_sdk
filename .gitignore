@@ -11,3 +11,4 @@ yarn-error.log*
 *.log
 *.tsbuildinfo
 *.tgz
+PASOS_*.md
