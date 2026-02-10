@@ -75,8 +75,8 @@ export class PinguiAlert {
 
       const data = (await res.json()) as any;
 
-      const alertsQuota = data.rateLimit;
-      const activeIntegration = data.status;
+      const alertsQuota = data.integrations.rateLimit;
+      const activeIntegration = data.integrations.status;
 
       if (!activeIntegration || activeIntegration !== 'active') {
         console.warn(
@@ -103,6 +103,8 @@ export class PinguiAlert {
         remainingAlerts: alertsQuota,
         success: true, // Assuming you want to consider the fetch successful if no error is thrown
       };
-    } catch (error) {}
+    } catch (error) {
+      console.error('Failed to fetch integration status:', error);
+    }
   }
 }
